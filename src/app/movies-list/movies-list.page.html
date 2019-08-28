@@ -1,9 +1,25 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title class="ion-text-center">MoviesDB</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>Search Movie</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <form #searchForm="ngForm" (ngSubmit)="onSubmit(searchForm)">
+    <ion-item>
+      <ion-label>Title</ion-label>
+      <ion-input type="text" ngModel #name="ngModel" name="title"></ion-input>
+    </ion-item>
+    <button ion-button type="submit">Submit</button>
+  </form>
+
+    <ion-list>
+ 
+    <ion-item *ngFor="let item of items">
+    {{ item.Title }}
+    </ion-item>
+ 
+  </ion-list>
 
 </ion-content>
