@@ -1,5 +1,7 @@
 {
   "name": "movieDB",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

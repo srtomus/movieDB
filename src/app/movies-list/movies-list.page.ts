@@ -19,9 +19,11 @@ export class MoviesListPage implements OnInit {
 
   onSubmit(searchForm: NgForm) {
     this.title = searchForm.value.title;
+    this.title = this.title.trim();
     this._omdbService.searchMovies(this.title).subscribe(
       response => {
-        console.log(this.items);
+        this.items = response.Search;
+        console.log(response.Search);
       },
       error => {
         console.log(error);

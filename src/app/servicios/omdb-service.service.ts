@@ -14,4 +14,8 @@ export class OmdbServiceService {
   searchMovies(title: string): Observable<any> {
     return this._httpClient.get(this.URL + "?s=" + title + "&apikey=" + this.API);
   }
+
+  getDetails(id) {
+    return this._httpClient.get(this.URL + "?i=$" + id + "&plot=full&apikey=$" + this.API);
+  }
 }
