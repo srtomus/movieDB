@@ -16,6 +16,7 @@ export class MoviesListPage implements OnInit {
 
   public items;
   public title;
+  public notFound: boolean;
 
   onSubmit(searchForm: NgForm) {
     this.title = searchForm.value.title;
@@ -23,10 +24,11 @@ export class MoviesListPage implements OnInit {
     this._omdbService.searchMovies(this.title).subscribe(
       response => {
         this.items = response.Search;
-        console.log(response.Search);
-      },
-      error => {
-        console.log(error);
+        if (!this.items) {
+          this.notFound = true;
+        } else {
+          this.notFound = false;
+        }
       }
     )
   }

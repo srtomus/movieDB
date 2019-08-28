@@ -16,6 +16,6 @@ export class OmdbServiceService {
   }
 
   getDetails(id) {
-    return this._httpClient.get(this.URL + "?i=$" + id + "&plot=full&apikey=$" + this.API);
+    return this._httpClient.get(this.URL + "?i=" + id + "&plot=full&apikey=" + this.API);
   }
 }
